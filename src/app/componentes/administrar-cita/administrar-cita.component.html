@@ -1,0 +1,100 @@
+<br>
+<div class="animated fadeIn">
+  <div id="contenido-citas">
+    <h2 class="text-primary" style="text-align: center">Administrar citas</h2>
+    <table class="table table-hover table-dark">
+      <thead>
+        <tr>
+          <th scope="col">Cliente</th>
+          <th scope="col">Celular</th>
+          <th scope="col">Barbero</th>
+          <th scope="col">Fecha</th>
+          <th scope="col">Hora</th>
+          <th scope="col">Estado</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let cita of citas;let i=index">
+
+
+          <th scope="row">{{ cita.nombreCliente}}</th>
+          <td>{{ cita.celular}}</td>
+          <td>{{ cita.nombreBarbero}}</td>
+          <td>{{ cita.fecha}}</td>
+          <td>{{ cita.hora}}</td>
+          <td *ngIf="cita.estadoCita == true; else citaTerminada">Pendiente</td>
+          <ng-template #citaTerminada>
+            <td>Terminada</td>
+          </ng-template>
+          <td><input type="radio" name="seleccionCIta" (change)="seleccionCita(cita);"></td>
+
+
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+
+  <div class="contenido-administrar-derecha">
+    <br>
+      <h4 class="text-primary text-center">Cita seleccionada</h4>
+      <tr *ngFor="let citaSeleccionadas of citas;let i=index">
+        <ng-container *ngIf="cita.id && cita.id == citaSeleccionadas.id;else mostrarCita">
+
+          <br>
+          <div style="margin:2%;">
+
+            <form (ngSubmit)="guardar(formularioCitas)" #formularioCitas="ngForm">
+
+
+              <div class="form-group">
+                <label for="inputNombre">Nombre: </label>
+                <input type="text" class="form-control" name="nombre" id="inputNombre" disabled
+                  [(ngModel)]="cita.nombreCliente">
+              </div>
+
+              <div class="form-group">
+                <label for="inputCelular">Celular: </label>
+                <input type="text" class="form-control" name="celular" id="inputCelular"
+                  placeholder="Confirme su numero de celular" [(ngModel)]="cita.celular">
+              </div>
+
+              <div class="form-group ">
+                <label for="inputBarbero">Barbero: </label>
+                <select name="barbero" id="inputBarbero" class="form-control" [(ngModel)]="cita.nombreBarbero">
+                  <option selected></option>
+                  <option *ngFor="let barbero of barberos">{{barbero.nombreBarbero}}</option>
+
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="inputFecha">Fecha: </label>
+                <input type="date" class="form-control" name="fecha" id="inputFecha" placeholder="Ingrese fecha de cita"
+                  [(ngModel)]="cita.fecha">
+              </div>
+              <div class="form-group">
+                <label for="inputHora">Hora: </label>
+                <input type="time" class="form-control" name="hora" id="inputHora" placeholder="Ingrese hora de cita"
+                  [(ngModel)]="cita.hora">
+              </div>
+
+              <label for="citaEstadoSelec" style="margin-left: 5px;">Estado cita: </label>
+              <select id="inputEstadoCita" class="form-control" name="estadoCita" [(ngModel)]="cita.estadoCita">
+                <option selected></option>
+                <option value=true>Pendiente</option>
+                <option value=false>Terminada</option>
+              </select>
+              <hr>
+
+              <button type="submit" class="btn btn-primary" style="float: left; height:40%;" >Actualizar</button>
+
+            </form>
+            <button (click)="borrarCita(citaSeleccionadas,i)" class="btn btn-danger"
+              style="float: right; margin-left: 2%;height:40%;">Eliminar</button>
+
+          </div>
+        </ng-container>
+        <ng-template #mostrarCita></ng-template>
+      </tr>
+    </div>
+</div>

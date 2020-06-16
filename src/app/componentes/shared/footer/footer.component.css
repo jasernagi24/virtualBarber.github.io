@@ -1,0 +1,21 @@
+@keyframes ColorMenuFoot {
+    0%{
+        border: rgb(209, 0, 0) solid;
+    }
+    100%{
+        border: #007ee5 solid;
+    }
+}
+
+#pie{
+    clear: both;
+    text-align: center;
+    padding-top:10px;
+    padding-bottom: 10px;
+    color: white;
+    background: #222222;
+    animation: ColorMenuFoot 4s ease-in-out infinite alternate both;
+    border-radius: 6px 6px 6px 6px;
+    margin-bottom: 0px;
+    margin-top: 20px;
+}

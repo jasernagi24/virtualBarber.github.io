@@ -1,0 +1,44 @@
+<br>
+<div class="animated fadeIn">
+    <div id="contenido-cortes">
+        <div class="selector text-center" style="width: 50%;margin-left: 25%;">
+            <h2 class="text-primary" style="text-align: center">Estilos de corte</h2>
+            <br>
+            <input #corte class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+            <br>
+            <button (click)="buscarCorte(corte.value)" class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar
+                corte</button>
+        </div>
+
+
+        <div class="card-group" style="width: 100%;">
+
+            <ng-container *ngIf="cortesBusqueda.length == 0; else ocultarCorte">
+                <div class="card-body text-center animated fadeIn"
+                    style="margin: 1.6%;width: 30%; max-width: 30%;background-color: rgba(255, 255, 255, 0.836);border-radius: 4px;"
+                    *ngFor="let corte of cortes">
+                    <img [src]="corte.img" class="card-img-top" alt="..." style="width: 90%; margin: 5%;">
+                    <div class="card-body">
+                        <p class="card-text">{{corte.nombreCorte}}</p>
+                        <p class="card-text">Precio: {{corte.valorCorte}}$</p>
+                        <p class="card-text">{{corte.categoriaCorte}}</p>
+                    </div>
+                </div>
+            </ng-container>
+            <ng-template #ocultarCorte>
+                <div class="card-body text-center animated fadeIn"
+                    style="margin: 1.6%;width: 30%; max-width: 30%;background-color: rgba(255, 255, 255, 0.836); border-radius: 4px;"
+                    *ngFor="let busqueda of cortesBusqueda">
+                    <img [src]="busqueda.img" class="card-img-top" alt="..." style="width: 90%; margin: 5%;">
+                    <div class="card-body">
+                        <p class="card-text">{{busqueda.nombreCorte}}</p>
+                        <p class="card-text">Precio: {{busqueda.valorCorte}}$</p>
+                        <p class="card-text">{{busqueda.categoriaCorte}}</p>
+                    </div>
+                </div>
+            </ng-template>
+
+        </div>
+
+    </div>
+</div>

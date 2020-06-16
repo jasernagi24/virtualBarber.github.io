@@ -1,0 +1,31 @@
+<div class="contenido-login animated fadeIn">
+    
+    <form (ngSubmit)="guardar(formularioCortes)" #formularioCortes="ngForm">
+        <div class="form-group">
+            <label for="inputId">Id: </label>
+            <input type="text" class="form-control" name="id" id="inputId" [(ngModel)]="corte.id" disabled>
+        </div>
+
+        <div class="form-group">
+            <label for="inputNombre">Nombre: </label>
+            <input type="text" class="form-control" name="nombre" id="inputNombre" placeholder="confirmar nombre de corte" [(ngModel)]="corte.nombreCorte">
+        </div>
+        
+        <div class="form-group">
+            <label for="inputCelular">Imagen: </label>
+            <input type="text" class="form-control" name="celular" id="inputCelular" placeholder="Ingrese link de imagen" [(ngModel)]="corte.img">
+        </div>
+
+        <div class="form-group">
+            <label for="inputCelular">Valor corte: </label>
+            <input type="number" class="form-control" name="Valor" id="inputValor" placeholder="Confirmar el valor del corte" [(ngModel)]="corte.valorCorte">
+        </div>
+
+        <div class="form-group">
+            <label for="inputFecha">categoria Corte: </label>
+            <input type="text" class="form-control"  name="fecha" id="inputFecha" placeholder="Confirmar la categoria" [(ngModel)]="corte.categoriaCorte">
+        </div>
+        
+        <button type="submit" class="btn btn-primary" style="margin-left: 42%;">Agregar corte</button>
+    </form>
+</div>

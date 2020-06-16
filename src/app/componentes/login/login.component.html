@@ -1,0 +1,27 @@
+<div class="contenido-login animated fadeIn">
+  <form (ngSubmit)="onSubmit(formLogin)" #formLogin="ngForm">
+    <div class="form-group">
+      <label for="inputEmail4">Email</label>
+      <br>
+      <span *ngIf="formLogin.submitted && 
+      formLogin.controls['email'].errors" class="text-danger">Ingrese un email valido</span>
+      <input type="email" class="form-control" name="email" [(ngModel)]=usuario.email required email
+        placeholder="Ingrese su correo electronico">
+    </div>
+
+    <div class="form-group">
+      <label for="inputPassword4">Password</label>
+      <br>
+      <span *ngIf="formLogin.submitted && 
+      formLogin.controls['password'].errors" class="text-danger">Ingrese un password valido</span>
+      <input type="password" class="form-control" name="password" [(ngModel)]=usuario.password required minlength="8"
+        placeholder="Ingrese una contraseña">
+    </div>
+    <div>
+      <a routerLink="/registro" class="text1">¿No tienes una cuenta? Ingresar</a>
+    </div>
+    <br>
+    <button type="submit" class="btn btn-primary" style="margin-left: 42%;">Conectar</button>
+  </form>
+
+</div>

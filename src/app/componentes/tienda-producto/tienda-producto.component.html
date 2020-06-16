@@ -1,0 +1,44 @@
+
+<br>
+<div class="animated fadeIn">
+    <div id="contenido-venta">
+        <div class="card-columns">
+            <div class="card text-center" *ngFor="let producto of productos; let i=index">
+
+                <img [src]="producto.img" class="card-img-top" alt="..."
+                    style="width: 40%; margin-left: 5%;margin-top: 5%;">
+                <div class="card-body">
+                    <h5 class="card-title">{{producto.titulo}}</h5>
+                    <p class="card-text">{{producto.descripcion}}</p>
+                    <p class="card-text" style="color: rgb(228, 0, 0);">{{producto.categoria}}</p>
+                    <p class="card-text"><small class="text-muted">Valor: {{producto.precioProducto}}$</small></p>
+                    <input class="btn btn-info" (click)="carritoProductos.push({id: producto.id, titulo: producto.titulo, precioProducto: producto.precioProducto}); 
+                    valorTotal = valorTotal + producto.precioProducto" type="button" value="Añadir al carrito" />
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="contenido-administrar-derecha">
+        <br>
+        <div class="carrito text-center" style="height: 500%;">
+            <img src="../../../assets/images/tienda/carrito-compra.png" alt="tienda Logo" style="width: 15%" />
+            <h3 style="color: rgb(0, 178, 223);">Carrito de compras</h3>
+
+            <form action="">
+                <div *ngFor="let carritoProducto of carritoProductos; let i=index">
+                    <button type="button" class="btn btn-danger" style="float: right; margin-right: 10px; size: 15px;" name="seleccionCIta" (click)="eliminarCarrito(carritoProducto.id)" > <span class="glyphicon .glyphicon-remove"></span></button>
+                    <p style="height: 70%;" >{{carritoProducto.titulo}} - {{carritoProducto.precioProducto}}$</p>
+                    
+
+                </div>
+                <p style="color: rgb(221, 0, 0);">valor total: {{valorTotal}}$</p>
+                <input type="button" class="btn btn-info" value="Validar compra" style="margin: 10px;"/>
+
+            </form>
+        </div>
+    </div>
+</div>

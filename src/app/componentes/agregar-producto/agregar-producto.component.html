@@ -1,0 +1,60 @@
+<div class="animated fadeIn" style="margin-top: 2%;">
+<div class="contenido-administrar-izquierda animated fadeIn">
+    <form (ngSubmit)="guardar(formularioProductos)" #formularioProductos="ngForm">
+        <div class="form-group">
+            <label for="inputId">Id: </label>
+            <input type="text" class="form-control" name="id" id="inputId" [(ngModel)]="producto.id" disabled>
+        </div>
+
+        <div class="form-group">
+            <label for="inputNombre">Nombre: </label>
+            <input type="text" class="form-control" name="titulo" id="inputNombre" placeholder="Confirme el nombre del producto" [(ngModel)]="producto.titulo">
+        </div>
+        
+        <div class="form-group">
+            <label for="inputCelular">Imagen: </label>
+            <input type="text" class="form-control" name="imagen" id="inputCelular" placeholder="Ingrese direccion url de la imagen" [(ngModel)]="producto.img">
+        </div>
+        <div class="form-group">
+            <label for="inputFecha">Descripcion: </label>
+            <input type="text" class="form-control"  name="descripcion" id="inputFecha" placeholder="Ingrese descripcion del producto" [(ngModel)]="producto.descripcion">
+        </div>
+        <div class="form-group">
+            <label for="inputHora">Precio: </label>
+            <input type="number" class="form-control" name="precio" id="inputHora" placeholder="Ingrese precio del producto" [(ngModel)]="producto.precioProducto">
+        </div>
+         <td *ngIf="mostrarModificar == false; else citaTerminada">
+            <div style="text-align: center;">
+            <button type="submit" class="btn btn-primary">Agregar</button></div>
+        </td>
+          <ng-template #citaTerminada>
+            <td><div style="text-align: center;">
+                <button type="submit" class="btn btn-primary" style="margin: 1%;">Modificar</button>
+                <button name="cancelarSeleccion" (click)="cancelarSeleccion()" class="btn btn-danger" style="margin: 1%;">Cancelar</button>
+            </div></td>
+          </ng-template>
+        
+    </form>
+</div>
+
+<div class="card mb-3 animated fadeIn" style="max-width: 65%; float: right; margin-right: 2%;">
+    <div *ngFor="let producto of productos;let i=index ">
+      <div class="row no-gutters animated fadeIn">
+        <div class="col-md-3">
+          <img [src]="producto.img" alt="..." style="width: 80%;">
+        </div>
+        <div class="col-md-6">
+          <div class="card-body">
+            <h5 class="card-title" style="color: rgb(83, 140, 204);">{{ producto.titulo }}</h5>
+            <p class="card-text">{{ producto.descripcion }}</p>
+            <p class="card-text">{{ producto.precioProducto }}</p>
+            <button name="seleccionProducto" class="btn btn-primary" (click)="seleccionProducto(producto);">Seleccionar</button>
+            <button (click)="deleteProducto(producto,i)" class="btn btn-danger" style="margin: 1%;">Eliminar</button>
+          </div>
+        </div>
+      </div>
+      <hr style="background-color: gray;">
+    </div>
+  </div>
+
+</div>

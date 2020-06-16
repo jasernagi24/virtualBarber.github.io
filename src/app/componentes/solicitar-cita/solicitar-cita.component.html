@@ -1,0 +1,38 @@
+<div class="contenido-login animated fadeIn">
+    
+    <form (ngSubmit)="guardar(formularioCitas)" #formularioCitas="ngForm">
+        <div class="form-group">
+            <label for="inputId">Id: </label>
+            <input type="text" class="form-control" name="id" id="inputId" [(ngModel)]="cita.id" disabled>
+        </div>
+
+        <div class="form-group">
+            <label for="inputNombre">Nombre: </label>
+            <input type="text" class="form-control" name="nombre" id="inputNombre" placeholder="Confirme su nombre completo" [(ngModel)]="cita.nombreCliente">
+        </div>
+        
+        <div class="form-group">
+            <label for="inputCelular">Celular: </label>
+            <input type="text" class="form-control" name="celular" id="inputCelular" placeholder="Confirme su numero de celular" [(ngModel)]="cita.celular">
+        </div>
+        <div class="form-group ">
+            <label for="inputBarbero">Barbero: </label>
+            <select name="barbero" id="inputBarbero" class="form-control" [(ngModel)]="cita.nombreBarbero">
+                <option selected>Escoger barbero</option>
+                <option *ngFor="let barbero of barberos">{{barbero.nombreBarbero}}</option>
+            </select>
+
+        </div>
+        <div class="form-group">
+            <label for="inputFecha">Fecha: </label>
+            <input type="date" class="form-control"  name="fecha" id="inputFecha" placeholder="Ingrese fecha de cita" [(ngModel)]="cita.fecha">
+        </div>
+
+        <div class="form-group">
+            <label for="inputHora">Hora: </label>
+            <input type="time" class="form-control" name="hora" id="inputHora" placeholder="Ingrese hora de cita" [(ngModel)]="cita.hora">
+        </div>
+        
+        <button type="submit" class="btn btn-primary" style="margin-left: 42%;">Enviar solicitud</button>
+    </form>
+</div>

@@ -1,0 +1,74 @@
+/*GENERALES*/
+*{
+    margin: 0px;
+    padding: 0px;
+    font-family: sans-serif, Helvetica, Arial;
+    text-decoration: none;
+}
+
+
+
+body{
+    background-color: rgba(204, 204, 204, 0.418);
+    background-size: cover;
+    background-position: center top;
+    background-repeat: no-repeat;
+}
+
+.contenido {
+    float: left;
+    width: 80%;
+    min-height: auto;
+    background: rgba(255, 255, 255, 0.925);
+    border-radius: 5px;
+    box-shadow: 0px 0px 5px #ccc;
+    margin-left: 10%;
+    margin-right: 10%;
+    padding: 50px;
+    margin-bottom: 20px;
+    margin-top: 0px;
+    overflow: hidden;
+}
+
+.contenido-login {
+    float: left;
+    width: 50%;
+    min-height: auto;
+    background: rgba(255, 255, 255, 0.925);
+    border-radius: 5px;
+    box-shadow: 0px 0px 5px #ccc;
+    margin-left: 25%;
+    margin-right: 25%;
+    padding: 50px;
+    margin-bottom: 20px;
+    margin-top: 5%;
+    overflow: hidden;
+}
+
+.contenido-administrar-izquierda {
+    float: left;
+    width: 25%;
+    min-height: auto;
+    background: rgba(255, 255, 255, 0.925);
+    border-radius: 5px;
+    box-shadow: 0px 0px 5px #ccc;
+    margin-left: 2%;
+    margin-right: 2%;
+    padding: 50px;
+    margin-bottom: 20px;;
+    overflow: hidden;
+}
+
+.contenido-administrar-derecha {
+    float: right;
+    width: 25%;
+    min-height: auto;
+    background: rgba(255, 255, 255, 0.925);
+    border-radius: 5px;
+    box-shadow: 0px 0px 5px #ccc;
+    margin-left: 2%;
+    margin-right: 2%;
+    padding: 50px;
+    margin-bottom: 20px;
+    overflow: hidden;
+}
